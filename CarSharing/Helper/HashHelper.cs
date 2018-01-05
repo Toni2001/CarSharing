@@ -33,7 +33,7 @@ namespace CarSharing.Helper
             // Convert plain text into a byte array.
             byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
-            // Allocate array, which will hold plain text and salt.
+            // Allocate array, which will hold plain text and salt....
             byte[] plainTextWithSaltBytes =
             new byte[plainTextBytes.Length + saltBytes.Length];
 
