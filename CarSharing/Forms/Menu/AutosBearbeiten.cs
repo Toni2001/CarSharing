@@ -22,7 +22,7 @@ namespace CarSharing
         private void AutosBearbeiten_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'carSharingDBDataSet5.Auto' table. You can move, or remove it, as needed.
-            this.autoTableAdapter1.Fill(this.carSharingDBDataSet5.Auto);
+            //this.autoTableAdapter1.Fill(this.carSharingDBDataSet5.Auto);
 
         }
 
@@ -52,7 +52,7 @@ namespace CarSharing
             try
             {
                 autoBindingSource.EndEdit();
-                autoBindingSource.AddingNew();
+                //autoBindingSource.AddingNew();
                 MessageBox.Show("You have been sucessfully saved.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

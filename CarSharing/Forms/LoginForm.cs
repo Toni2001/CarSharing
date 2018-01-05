@@ -27,7 +27,7 @@ namespace CarSharing.Forms
 
             if (!String.IsNullOrEmpty(txtUsername.Text) || !String.IsNullOrEmpty(txtPassword.Text))
             {
-                using (CarSharingDBEntities context = new CarSharingDBEntities())
+                using (CarSharingDBEntitiesNew context = new CarSharingDBEntitiesNew())
                 {
                     User user = context.User.FirstOrDefault(u => u.Username == txtUsername.Text);
                     if (user == null)

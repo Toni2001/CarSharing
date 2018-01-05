@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.autoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.carSharingDBDataSet3 = new CarSharing.CarSharingDBDataSet3();
-            this.autoTableAdapter = new CarSharing.CarSharingDBDataSet3TableAdapters.AutoTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.autoIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.farbIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,28 +42,20 @@
             this.antriebIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kilometerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.carSharingDBDataSet5 = new CarSharing.CarSharingDBDataSet5();
-            this.autoTableAdapter1 = new CarSharing.CarSharingDBDataSet5TableAdapters.AutoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.autoBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carSharingDBDataSet3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.autoBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carSharingDBDataSet5)).BeginInit();
             this.SuspendLayout();
             // 
             // autoBindingSource
             // 
             this.autoBindingSource.DataMember = "Auto";
-            this.autoBindingSource.DataSource = this.carSharingDBDataSet3;
             // 
             // carSharingDBDataSet3
             // 
-            this.carSharingDBDataSet3.DataSetName = "CarSharingDBDataSet3";
-            this.carSharingDBDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // autoTableAdapter
             // 
-            this.autoTableAdapter.ClearBeforeFill = true;
             // 
             // dataGridView1
             // 
@@ -157,16 +147,12 @@
             // autoBindingSource1
             // 
             this.autoBindingSource1.DataMember = "Auto";
-            this.autoBindingSource1.DataSource = this.carSharingDBDataSet5;
             // 
             // carSharingDBDataSet5
             // 
-            this.carSharingDBDataSet5.DataSetName = "CarSharingDBDataSet5";
-            this.carSharingDBDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // autoTableAdapter1
             // 
-            this.autoTableAdapter1.ClearBeforeFill = true;
             // 
             // AutosBearbeiten
             // 
@@ -179,22 +165,16 @@
             this.Name = "AutosBearbeiten";
             this.Load += new System.EventHandler(this.AutosBearbeiten_Load);
             ((System.ComponentModel.ISupportInitialize)(this.autoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carSharingDBDataSet3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.autoBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.carSharingDBDataSet5)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private CarSharingDBDataSet3 carSharingDBDataSet3;
         private System.Windows.Forms.BindingSource autoBindingSource;
-        private CarSharingDBDataSet3TableAdapters.AutoTableAdapter autoTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private CarSharingDBDataSet5 carSharingDBDataSet5;
         private System.Windows.Forms.BindingSource autoBindingSource1;
-        private CarSharingDBDataSet5TableAdapters.AutoTableAdapter autoTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn autoIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn farbIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn markeIdDataGridViewTextBoxColumn;

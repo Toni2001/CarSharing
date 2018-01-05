@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="19ae6d3df9a94de2ae73c22ac1420c52" Name="Diagram1">
+        <EntityTypeShape EntityType="CarSharingDBModel.Antrieb" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.Auto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.Farbe" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.Getriebeart" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.KennzeichenNummer" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.Marke" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.modell" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.Treibstoff" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.Typ" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CarSharingDBModel.User" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_Antrieb" ManuallyRouted="false" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_Farbe" ManuallyRouted="false" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_Getriebeart" ManuallyRouted="false" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_KennzeichenNummer" ManuallyRouted="false" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_Marke" ManuallyRouted="false" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_modell" ManuallyRouted="false" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_Treibstoff" ManuallyRouted="false" />
+        <AssociationConnector Association="CarSharingDBModel.FK_Auto_Typ" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

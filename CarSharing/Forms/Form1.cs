@@ -31,7 +31,7 @@ namespace CarSharing
                     return;
                 } 
 
-                using (CarSharingDBEntities context = new CarSharingDBEntities())
+                using (CarSharingDBEntitiesNew context = new CarSharingDBEntitiesNew())
                 {
                     User User1 = new User()
                     {

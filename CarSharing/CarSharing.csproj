@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -54,59 +55,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutosAusleihen.cs">
+    <Compile Include="Forms\Menu\AutosAusleihen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutosAusleihen.Designer.cs">
+    <Compile Include="Forms\Menu\AutosAusleihen.Designer.cs">
       <DependentUpon>AutosAusleihen.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutosLöschen.cs">
+    <Compile Include="Forms\Menu\AutosLöschen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutosLöschen.Designer.cs">
+    <Compile Include="Forms\Menu\AutosLöschen.Designer.cs">
       <DependentUpon>AutosLöschen.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutosBearbeiten.cs">
+    <Compile Include="Forms\Menu\AutosBearbeiten.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutosBearbeiten.Designer.cs">
+    <Compile Include="Forms\Menu\AutosBearbeiten.Designer.cs">
       <DependentUpon>AutosBearbeiten.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutosKaufen.cs">
+    <Compile Include="Forms\Menu\AutosKaufen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AutosKaufen.Designer.cs">
+    <Compile Include="Forms\Menu\AutosKaufen.Designer.cs">
       <DependentUpon>AutosKaufen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CarSharingDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarSharingDBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarSharingDBDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarSharingDBDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarSharingDBDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarSharingDBDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarSharingDBDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarSharingDBDataSet3.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarSharingDBDataSet41.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarSharingDBDataSet41.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="CarSharingDBDataSet5.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CarSharingDBDataSet5.xsd</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
@@ -126,37 +97,73 @@
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Menu\FarbeBearbeiten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu\FarbeBearbeiten.Designer.cs">
+      <DependentUpon>FarbeBearbeiten.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\HashHelper.cs" />
-    <Compile Include="Model\Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
+    <Compile Include="Model\Antrieb.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Model\Auto.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Model.Designer.cs">
+    <Compile Include="Model\Farbe.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Getriebeart.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\KennzeichenNummer.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Marke.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\modell.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelSandro.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
+      <DependentUpon>ModelSandro.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelSandro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelSandro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelSandro.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Treibstoff.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Typ.cs">
+      <DependentUpon>ModelSandro.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\User.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModelSandro.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AutosAusleihen.resx">
+    <EmbeddedResource Include="Forms\Menu\AutosAusleihen.resx">
       <DependentUpon>AutosAusleihen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutosLöschen.resx">
+    <EmbeddedResource Include="Forms\Menu\AutosLöschen.resx">
       <DependentUpon>AutosLöschen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutosBearbeiten.resx">
+    <EmbeddedResource Include="Forms\Menu\AutosBearbeiten.resx">
       <DependentUpon>AutosBearbeiten.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AutosKaufen.resx">
+    <EmbeddedResource Include="Forms\Menu\AutosKaufen.resx">
       <DependentUpon>AutosKaufen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
@@ -168,6 +175,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menu\FarbeBearbeiten.resx">
+      <DependentUpon>FarbeBearbeiten.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -177,78 +187,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Model\Model.edmx">
+    <EntityDeploy Include="Model\ModelSandro.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelSandro.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="CarSharingDBDataSet.xsc">
-      <DependentUpon>CarSharingDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarSharingDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarSharingDBDataSet.xss">
-      <DependentUpon>CarSharingDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet1.xsc">
-      <DependentUpon>CarSharingDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarSharingDBDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarSharingDBDataSet1.xss">
-      <DependentUpon>CarSharingDBDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet2.xsc">
-      <DependentUpon>CarSharingDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarSharingDBDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarSharingDBDataSet2.xss">
-      <DependentUpon>CarSharingDBDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet3.xsc">
-      <DependentUpon>CarSharingDBDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarSharingDBDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarSharingDBDataSet3.xss">
-      <DependentUpon>CarSharingDBDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet41.xsc">
-      <DependentUpon>CarSharingDBDataSet41.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet41.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarSharingDBDataSet41.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarSharingDBDataSet41.xss">
-      <DependentUpon>CarSharingDBDataSet41.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet5.xsc">
-      <DependentUpon>CarSharingDBDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="CarSharingDBDataSet5.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CarSharingDBDataSet5.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CarSharingDBDataSet5.xss">
-      <DependentUpon>CarSharingDBDataSet5.xsd</DependentUpon>
-    </None>
-    <None Include="Model\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
+    <None Include="Model\ModelSandro.edmx.diagram">
+      <DependentUpon>ModelSandro.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -264,21 +208,21 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="Model\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Model\ModelSandro.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSandro.edmx</DependentUpon>
+      <LastGenOutput>ModelSandro.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ModelSandro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelSandro.edmx</DependentUpon>
+      <LastGenOutput>ModelSandro.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

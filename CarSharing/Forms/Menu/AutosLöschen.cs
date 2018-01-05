@@ -20,7 +20,7 @@ namespace CarSharing
         private void AutosLöschen_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'carSharingDBDataSet4.Auto' table. You can move, or remove it, as needed.
-            this.autoTableAdapter.Fill(this.carSharingDBDataSet4.Auto);
+            //this.autoTableAdapter.Fill(this.carSharingDBDataSet4.Auto);
 
         }
 

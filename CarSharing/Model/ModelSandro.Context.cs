@@ -13,10 +13,10 @@ namespace CarSharing.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CarSharingDBEntities : DbContext
+    public partial class CarSharingDBEntitiesNew : DbContext
     {
-        public CarSharingDBEntities()
-            : base("name=CarSharingDBEntities")
+        public CarSharingDBEntitiesNew()
+            : base("name=CarSharingDBEntitiesNew")
         {
         }
     
@@ -25,6 +25,16 @@ namespace CarSharing.Model
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Antrieb> Antrieb { get; set; }
+        public virtual DbSet<Auto> Auto { get; set; }
+        public virtual DbSet<Farbe> Farbe { get; set; }
+        public virtual DbSet<Getriebeart> Getriebeart { get; set; }
+        public virtual DbSet<KennzeichenNummer> KennzeichenNummer { get; set; }
+        public virtual DbSet<Marke> Marke { get; set; }
+        public virtual DbSet<modell> modell { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Treibstoff> Treibstoff { get; set; }
+        public virtual DbSet<Typ> Typ { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }

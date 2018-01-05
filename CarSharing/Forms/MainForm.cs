@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CarSharing.Forms.Menu;
 
 namespace CarSharing.Forms
 {
@@ -44,6 +45,12 @@ namespace CarSharing.Forms
         {
             AutosBearbeiten formBearbeiten = new AutosBearbeiten();
             formBearbeiten.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FarbeBearbeiten farbeBearbeiten = new FarbeBearbeiten();
+            farbeBearbeiten.Show();
         }
     }
 }

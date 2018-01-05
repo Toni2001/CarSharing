@@ -1,0 +1,630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CarSharingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Antrieb">
+          <Key>
+            <PropertyRef Name="AntriebId" />
+          </Key>
+          <Property Name="AntriebId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Antrieb" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Auto">
+          <Key>
+            <PropertyRef Name="AutoId" />
+          </Key>
+          <Property Name="AutoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FarbId" Type="int" Nullable="false" />
+          <Property Name="MarkeId" Type="int" Nullable="false" />
+          <Property Name="ModellId" Type="int" Nullable="false" />
+          <Property Name="KennzeichenNummerId" Type="int" Nullable="false" />
+          <Property Name="TypId" Type="int" Nullable="false" />
+          <Property Name="GetriebartId" Type="int" Nullable="false" />
+          <Property Name="TreibstoffId" Type="int" Nullable="false" />
+          <Property Name="AntriebId" Type="int" Nullable="false" />
+          <Property Name="Kilometer" Type="int" />
+        </EntityType>
+        <EntityType Name="Farbe">
+          <Key>
+            <PropertyRef Name="Farbid" />
+          </Key>
+          <Property Name="Farbid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Farbe" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Getriebeart">
+          <Key>
+            <PropertyRef Name="GetriebeartId" />
+          </Key>
+          <Property Name="GetriebeartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Getriebeart" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KennzeichenNummer">
+          <Key>
+            <PropertyRef Name="KennzeichenNummerId" />
+          </Key>
+          <Property Name="KennzeichenNummerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KennzeichenNummer" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Marke">
+          <Key>
+            <PropertyRef Name="MarkeId" />
+          </Key>
+          <Property Name="MarkeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marke" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="modell">
+          <Key>
+            <PropertyRef Name="ModellId" />
+          </Key>
+          <Property Name="ModellId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Modell" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'CarSharingDB.dbo.tbl_insertion' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="tbl_insertion">
+          <Property Name="Id" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Fname" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Grender" Type="varchar" MaxLength="50" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="Treibstoff">
+          <Key>
+            <PropertyRef Name="TreibstoffId" />
+          </Key>
+          <Property Name="TreibstoffId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Treibstoff" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Typ">
+          <Key>
+            <PropertyRef Name="TypId" />
+          </Key>
+          <Property Name="TypId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Typ" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Password" Type="varchar(max)" />
+          <Property Name="MitarbeiterId" Type="int" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Auto_Antrieb">
+          <End Role="Antrieb" Type="Self.Antrieb" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Antrieb">
+              <PropertyRef Name="AntriebId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="AntriebId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Farbe">
+          <End Role="Farbe" Type="Self.Farbe" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farbe">
+              <PropertyRef Name="Farbid" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="FarbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Getriebeart">
+          <End Role="Getriebeart" Type="Self.Getriebeart" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Getriebeart">
+              <PropertyRef Name="GetriebeartId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="GetriebartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_KennzeichenNummer">
+          <End Role="KennzeichenNummer" Type="Self.KennzeichenNummer" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KennzeichenNummer">
+              <PropertyRef Name="KennzeichenNummerId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="KennzeichenNummerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Marke">
+          <End Role="Marke" Type="Self.Marke" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marke">
+              <PropertyRef Name="MarkeId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="MarkeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_modell">
+          <End Role="modell" Type="Self.modell" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modell">
+              <PropertyRef Name="ModellId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="ModellId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Treibstoff">
+          <End Role="Treibstoff" Type="Self.Treibstoff" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treibstoff">
+              <PropertyRef Name="TreibstoffId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="TreibstoffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Typ">
+          <End Role="Typ" Type="Self.Typ" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typ">
+              <PropertyRef Name="TypId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="TypId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarSharingDBModelStoreContainer">
+          <EntitySet Name="Antrieb" EntityType="Self.Antrieb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Auto" EntityType="Self.Auto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Farbe" EntityType="Self.Farbe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Getriebeart" EntityType="Self.Getriebeart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KennzeichenNummer" EntityType="Self.KennzeichenNummer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marke" EntityType="Self.Marke" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="modell" EntityType="Self.modell" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Treibstoff" EntityType="Self.Treibstoff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Typ" EntityType="Self.Typ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Auto_Antrieb" Association="Self.FK_Auto_Antrieb">
+            <End Role="Antrieb" EntitySet="Antrieb" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Farbe" Association="Self.FK_Auto_Farbe">
+            <End Role="Farbe" EntitySet="Farbe" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Getriebeart" Association="Self.FK_Auto_Getriebeart">
+            <End Role="Getriebeart" EntitySet="Getriebeart" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_KennzeichenNummer" Association="Self.FK_Auto_KennzeichenNummer">
+            <End Role="KennzeichenNummer" EntitySet="KennzeichenNummer" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Marke" Association="Self.FK_Auto_Marke">
+            <End Role="Marke" EntitySet="Marke" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_modell" Association="Self.FK_Auto_modell">
+            <End Role="modell" EntitySet="modell" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Treibstoff" Association="Self.FK_Auto_Treibstoff">
+            <End Role="Treibstoff" EntitySet="Treibstoff" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Typ" Association="Self.FK_Auto_Typ">
+            <End Role="Typ" EntitySet="Typ" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarSharingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Antrieb">
+          <Key>
+            <PropertyRef Name="AntriebId" />
+          </Key>
+          <Property Name="AntriebId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Antrieb1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_Antrieb" FromRole="Antrieb" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="Auto">
+          <Key>
+            <PropertyRef Name="AutoId" />
+          </Key>
+          <Property Name="AutoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FarbId" Type="Int32" Nullable="false" />
+          <Property Name="MarkeId" Type="Int32" Nullable="false" />
+          <Property Name="ModellId" Type="Int32" Nullable="false" />
+          <Property Name="KennzeichenNummerId" Type="Int32" Nullable="false" />
+          <Property Name="TypId" Type="Int32" Nullable="false" />
+          <Property Name="GetriebartId" Type="Int32" Nullable="false" />
+          <Property Name="TreibstoffId" Type="Int32" Nullable="false" />
+          <Property Name="AntriebId" Type="Int32" Nullable="false" />
+          <Property Name="Kilometer" Type="Int32" />
+          <NavigationProperty Name="Antrieb" Relationship="Self.FK_Auto_Antrieb" FromRole="Auto" ToRole="Antrieb" />
+          <NavigationProperty Name="Farbe" Relationship="Self.FK_Auto_Farbe" FromRole="Auto" ToRole="Farbe" />
+          <NavigationProperty Name="Getriebeart" Relationship="Self.FK_Auto_Getriebeart" FromRole="Auto" ToRole="Getriebeart" />
+          <NavigationProperty Name="KennzeichenNummer" Relationship="Self.FK_Auto_KennzeichenNummer" FromRole="Auto" ToRole="KennzeichenNummer" />
+          <NavigationProperty Name="Marke" Relationship="Self.FK_Auto_Marke" FromRole="Auto" ToRole="Marke" />
+          <NavigationProperty Name="modell" Relationship="Self.FK_Auto_modell" FromRole="Auto" ToRole="modell" />
+          <NavigationProperty Name="Treibstoff" Relationship="Self.FK_Auto_Treibstoff" FromRole="Auto" ToRole="Treibstoff" />
+          <NavigationProperty Name="Typ" Relationship="Self.FK_Auto_Typ" FromRole="Auto" ToRole="Typ" />
+        </EntityType>
+        <EntityType Name="Farbe">
+          <Key>
+            <PropertyRef Name="Farbid" />
+          </Key>
+          <Property Name="Farbid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Farbe1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_Farbe" FromRole="Farbe" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="Getriebeart">
+          <Key>
+            <PropertyRef Name="GetriebeartId" />
+          </Key>
+          <Property Name="GetriebeartId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Getriebeart1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_Getriebeart" FromRole="Getriebeart" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="KennzeichenNummer">
+          <Key>
+            <PropertyRef Name="KennzeichenNummerId" />
+          </Key>
+          <Property Name="KennzeichenNummerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KennzeichenNummer1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_KennzeichenNummer" FromRole="KennzeichenNummer" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="Marke">
+          <Key>
+            <PropertyRef Name="MarkeId" />
+          </Key>
+          <Property Name="MarkeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marke1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_Marke" FromRole="Marke" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="modell">
+          <Key>
+            <PropertyRef Name="ModellId" />
+          </Key>
+          <Property Name="ModellId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modell1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_modell" FromRole="modell" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Treibstoff">
+          <Key>
+            <PropertyRef Name="TreibstoffId" />
+          </Key>
+          <Property Name="TreibstoffId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Treibstoff1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_Treibstoff" FromRole="Treibstoff" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="Typ">
+          <Key>
+            <PropertyRef Name="TypId" />
+          </Key>
+          <Property Name="TypId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Typ1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_Typ" FromRole="Typ" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MitarbeiterId" Type="Int32" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Auto_Antrieb">
+          <End Role="Antrieb" Type="Self.Antrieb" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Antrieb">
+              <PropertyRef Name="AntriebId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="AntriebId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Farbe">
+          <End Role="Farbe" Type="Self.Farbe" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farbe">
+              <PropertyRef Name="Farbid" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="FarbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Getriebeart">
+          <End Role="Getriebeart" Type="Self.Getriebeart" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Getriebeart">
+              <PropertyRef Name="GetriebeartId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="GetriebartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_KennzeichenNummer">
+          <End Role="KennzeichenNummer" Type="Self.KennzeichenNummer" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KennzeichenNummer">
+              <PropertyRef Name="KennzeichenNummerId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="KennzeichenNummerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Marke">
+          <End Role="Marke" Type="Self.Marke" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marke">
+              <PropertyRef Name="MarkeId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="MarkeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_modell">
+          <End Role="modell" Type="Self.modell" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modell">
+              <PropertyRef Name="ModellId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="ModellId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Treibstoff">
+          <End Role="Treibstoff" Type="Self.Treibstoff" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Treibstoff">
+              <PropertyRef Name="TreibstoffId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="TreibstoffId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_Typ">
+          <End Role="Typ" Type="Self.Typ" Multiplicity="1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Typ">
+              <PropertyRef Name="TypId" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="TypId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CarSharingDBEntitiesNew" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Antrieb" EntityType="Self.Antrieb" />
+          <EntitySet Name="Auto" EntityType="Self.Auto" />
+          <EntitySet Name="Farbe" EntityType="Self.Farbe" />
+          <EntitySet Name="Getriebeart" EntityType="Self.Getriebeart" />
+          <EntitySet Name="KennzeichenNummer" EntityType="Self.KennzeichenNummer" />
+          <EntitySet Name="Marke" EntityType="Self.Marke" />
+          <EntitySet Name="modell" EntityType="Self.modell" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Treibstoff" EntityType="Self.Treibstoff" />
+          <EntitySet Name="Typ" EntityType="Self.Typ" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Auto_Antrieb" Association="Self.FK_Auto_Antrieb">
+            <End Role="Antrieb" EntitySet="Antrieb" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Farbe" Association="Self.FK_Auto_Farbe">
+            <End Role="Farbe" EntitySet="Farbe" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Getriebeart" Association="Self.FK_Auto_Getriebeart">
+            <End Role="Getriebeart" EntitySet="Getriebeart" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_KennzeichenNummer" Association="Self.FK_Auto_KennzeichenNummer">
+            <End Role="KennzeichenNummer" EntitySet="KennzeichenNummer" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Marke" Association="Self.FK_Auto_Marke">
+            <End Role="Marke" EntitySet="Marke" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_modell" Association="Self.FK_Auto_modell">
+            <End Role="modell" EntitySet="modell" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Treibstoff" Association="Self.FK_Auto_Treibstoff">
+            <End Role="Treibstoff" EntitySet="Treibstoff" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_Typ" Association="Self.FK_Auto_Typ">
+            <End Role="Typ" EntitySet="Typ" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CarSharingDBModelStoreContainer" CdmEntityContainer="CarSharingDBEntitiesNew">
+          <EntitySetMapping Name="Antrieb">
+            <EntityTypeMapping TypeName="CarSharingDBModel.Antrieb">
+              <MappingFragment StoreEntitySet="Antrieb">
+                <ScalarProperty Name="AntriebId" ColumnName="AntriebId" />
+                <ScalarProperty Name="Antrieb1" ColumnName="Antrieb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Auto">
+            <EntityTypeMapping TypeName="CarSharingDBModel.Auto">
+              <MappingFragment StoreEntitySet="Auto">
+                <ScalarProperty Name="AutoId" ColumnName="AutoId" />
+                <ScalarProperty Name="FarbId" ColumnName="FarbId" />
+                <ScalarProperty Name="MarkeId" ColumnName="MarkeId" />
+                <ScalarProperty Name="ModellId" ColumnName="ModellId" />
+                <ScalarProperty Name="KennzeichenNummerId" ColumnName="KennzeichenNummerId" />
+                <ScalarProperty Name="TypId" ColumnName="TypId" />
+                <ScalarProperty Name="GetriebartId" ColumnName="GetriebartId" />
+                <ScalarProperty Name="TreibstoffId" ColumnName="TreibstoffId" />
+                <ScalarProperty Name="AntriebId" ColumnName="AntriebId" />
+                <ScalarProperty Name="Kilometer" ColumnName="Kilometer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Farbe">
+            <EntityTypeMapping TypeName="CarSharingDBModel.Farbe">
+              <MappingFragment StoreEntitySet="Farbe">
+                <ScalarProperty Name="Farbid" ColumnName="Farbid" />
+                <ScalarProperty Name="Farbe1" ColumnName="Farbe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Getriebeart">
+            <EntityTypeMapping TypeName="CarSharingDBModel.Getriebeart">
+              <MappingFragment StoreEntitySet="Getriebeart">
+                <ScalarProperty Name="GetriebeartId" ColumnName="GetriebeartId" />
+                <ScalarProperty Name="Getriebeart1" ColumnName="Getriebeart" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KennzeichenNummer">
+            <EntityTypeMapping TypeName="CarSharingDBModel.KennzeichenNummer">
+              <MappingFragment StoreEntitySet="KennzeichenNummer">
+                <ScalarProperty Name="KennzeichenNummerId" ColumnName="KennzeichenNummerId" />
+                <ScalarProperty Name="KennzeichenNummer1" ColumnName="KennzeichenNummer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marke">
+            <EntityTypeMapping TypeName="CarSharingDBModel.Marke">
+              <MappingFragment StoreEntitySet="Marke">
+                <ScalarProperty Name="MarkeId" ColumnName="MarkeId" />
+                <ScalarProperty Name="Marke1" ColumnName="Marke" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modell">
+            <EntityTypeMapping TypeName="CarSharingDBModel.modell">
+              <MappingFragment StoreEntitySet="modell">
+                <ScalarProperty Name="ModellId" ColumnName="ModellId" />
+                <ScalarProperty Name="Modell1" ColumnName="Modell" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CarSharingDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Treibstoff">
+            <EntityTypeMapping TypeName="CarSharingDBModel.Treibstoff">
+              <MappingFragment StoreEntitySet="Treibstoff">
+                <ScalarProperty Name="TreibstoffId" ColumnName="TreibstoffId" />
+                <ScalarProperty Name="Treibstoff1" ColumnName="Treibstoff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Typ">
+            <EntityTypeMapping TypeName="CarSharingDBModel.Typ">
+              <MappingFragment StoreEntitySet="Typ">
+                <ScalarProperty Name="TypId" ColumnName="TypId" />
+                <ScalarProperty Name="Typ1" ColumnName="Typ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="CarSharingDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="MitarbeiterId" ColumnName="MitarbeiterId" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
